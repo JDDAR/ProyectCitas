@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>Medico</title>
+    <style>
+        .sectionInfoId {
+            width: 60%;
+            margin-top: 35px;
+            border: 1px solid black;
+            border-radius: 12px;
+        }
+        .navInfoId {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+            border-bottom: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="container sectionInfoId">
+    <div class="navInfoId">  
+        <h3>Informacion del medico <span>{{ medicoId.nombres }}</span></h3>
+        <a  class="btn btn-success" href="http://127.0.0.1:5000/medicos">Volver al listado</a>
+    </div> 
+    
+    <ul class="">
+        <li><span>Nombres:</span><p>{{medicoId.nombres}}</p> </li>
+        <li><span>Apellidos:</span> {{medicoId.nombres}}</li>
+        <li><span>Tipo de identificacion:</span> {{medicoId.tipo_identificacion}}</li>
+        <li><span>Numero identificacion:</span> {{medicoId.numero_identificacion}}</li>
+        <li><span>Registro medico:</span> {{medicoId.registro_medico}}</li>
+        <li><span>Especialidad:</span> {{medicoId.especialidad}}</li>
+    </ul>
+</section>
+</body>
+</html>

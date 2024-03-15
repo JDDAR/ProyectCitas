@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+  --font-family-style : "Sarabun", sans-serif;
+
+  /*Colors */
+
+  --color-primary: #E9EBEC;
+  --color-secundary: #10B8B9;
+  --color-font : #1E1E1E; 
+
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--color-primary);
+  font-family: var(--font-family-style);
+  color: var(--color-font);
+}
+.container {
+  width:69%;
+  margin: auto;
+  
+}
+.contenidoHome {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+}
+
+/*Botones*/
+
+.butonPrimary {
+  padding: 15px 25px;
+  background: var(--color-secundary);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+}
+
+/*Saludo Home*/
+.articleHello {
+  margin-top: 5%;
+  line-height: 3rem;
+}
+.articleHello h3 {
+  font-size: 1.75em;
+  font-weight: 100;
+}
+.articleHello h2 {
+  font-size: 3.40em;
+}
+.textSelection {
+  font-size: 1rem;
+  font-weight: 100;
+  margin-bottom: 35px;
+}
+/*Cards Seleccion*/
+.cardsSelection {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+}
+.cardsSelection div{
+  width: 100%;
+  border: 1px solid var(--color-secundary);
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+.cardsSelection div span {
+  font-size: 3.75em;
+  color: var(--color-secundary);
+  margin-bottom: 80px;
+}
+.cardsSelection div h4 {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: var(--color-font);
+}
+.cardsSelection div p {
+  font-size: 1em;
+  font-weight: 100;
+  margin-bottom: 35px;
+}
+
+/* Footer*/
+
+footer {
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--color-font);
+  padding-bottom: 5px;
+}
+footer p {
+  font-size: 1em;
+  font-weight: 100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

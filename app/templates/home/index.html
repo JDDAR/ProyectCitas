@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALUD.PY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
+    <script src="https://kit.fontawesome.com/6cfff2ec0f.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <section class="container contenidoHome" >
+      <article class="articleHello">
+        <h3>Bienvenido a</h3>
+        <h2>SALUD.PY</h2>
+      </article>
+      <section>
+        <p class="textSelection">Seleccione la accion que quiere realizar</p>
+        <article class="cardsSelection">
+          <div>
+            <span><i class="fa-solid fa-table"></i></span>
+            <h4>Ver Información</h4>
+            <p>Ver informacion de usuarios y citas</p>
+            <a href="http://127.0.0.1:5000/medicos" class="butonPrimary">VER</a>
+          </div>
+          <div>
+            <span><i class="fa-solid fa-user-plus"></i></span>
+            <h4>Crear Nuevo Usuario</h4>
+            <p>Crear usuario nuevo como : Medicos o Pacientes</p>
+            <a href="http://127.0.0.1:5000/medicos/create" class="butonPrimary">CREAR</a>
+          </div>
+          <div>
+            <span><i class="fa-solid fa-file-circle-plus"></i></span>
+            <h4>Crear Cita Nueva</h4>
+            <p>Crear una nueva cita asignando dotor y paciente</p>
+            <a href="http://127.0.0.1:5000/citas/create" class="butonPrimary">CREAR</a>
+          </div>
+        </article>
+      </section>
+    </section>
+    <footer>
+      <p>&copy; 2024 Grupo sena Python ficha : 2826502 &#9827</p>
+    </footer>
+  </body>
+</html>

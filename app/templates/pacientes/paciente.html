@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>Medico</title>
+</head>
+<body>
+    <section style="padding-top: 65px;" class="container">
+    <div>  
+        <a  class="btn btn-success" href="http://127.0.0.1:5000/pacientes">Volver al listado</a>
+    </div> 
+    <h3 style="margin-top: 35px;">Informacion del Paciente <span>{{ pacienteId.nombres }}</span></h3>
+    <ul class="">
+        <li><span>Nombres:</span> {{pacienteId.nombres}}</li>
+        <li><span>Apellidos:</span> {{pacienteId.nombres}}</li>
+        <li><span>Tipo de identificacion:</span> {{pacienteId.tipo_identificacion}}</li>
+        <li><span>Numero identificacion:</span> {{pacienteId.numero_identificacion}}</li>
+        <li><span>Altura:</span> {{pacienteId.altura}}</li>
+        <li><span>Tipo de sangre:</span> {{pacienteId.tipo_sangre}}</li>
+    </ul>
+</section>
+</body>
+</html>

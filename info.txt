@@ -1,0 +1,57 @@
+**** flask-sqlalchemy --> libreria que permite crear entidades permitentes 
+**** flask-migrate -->
+**** mysql-client --->
+
+
+**** Crear la conexion en un archivo config.py guardar en carpeta app
+
+    class Config: 
+    SQLALCHEMY_DATABASE_URI='mysql://root:@localhost/citas_2826502'
+    SQLALCHEMY_TRACK_NOTIFICATION=True
+
+**** En el archivo init ---> 
+    ###Importar la configuracion 
+    from .config import Config
+
+    ##### Crenando el objetyo de aplicacion ##
+    app = Flask(__name__)
+
+    #### Configurando el objeto flask con el config     
+    app .config.from_object(Config)
+
+
+
+
+
+----------------------------------------------------------------------
+
+Que es una migracion? -> es un mecnismo que se escribe en codigo nativo dependiendo del lenguiaje 
+                        escribir el codigo de creacion de la base de datos desde el lenguaje nativo
+                    ****un archivo para definir registras y controlar la estructura de labase de datos 
+
+MODELO - ENTIDAD : Son Entidades con capacidades de Crud
+                
+                 CRUD --> 
+                    C : Create -->  insertar una fila en la tabla 
+                                    'insertar un nuevo objeto ()'
+                    u: Update --> Cambiar el valor en una celda  
+                                  'Cambiar el estado de un objeto' 
+                                  
+                    d: Delete --> elimiar una fila 
+                                eliminar un objeto 
+                    
+                    r: read --> Operfciones de consultas 
+
+Para crear entidades ----> ORM  --> Objet relational mapper
+
+
+    ******************* 
+    Crear los modelo 
+    crear el entorno para las migraciones 
+    >flask db init
+
+
+-----------------------------------------------------------------------------------------
+
+CLIENTE - SERVIDOR (ARQUITECTURA DE SOFTWARE )
+
