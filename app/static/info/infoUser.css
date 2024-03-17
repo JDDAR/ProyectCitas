@@ -1,0 +1,11 @@
+.sectionHomeTable{
+  display: flex; 
+}
+.navLeft {
+  border: 1px solid red;
+  width: 25%;
+}
+.contenidoRight{
+  border: 1px solid blue;
+  width: 100%;
+}
