@@ -23,10 +23,6 @@
 .actualizado {
     background: green;
 }
-.sectionHomeTable{
-  display: flex;
-}
-
 /*Nav info Botones*/
 .navInfoRight{
   padding: 25px;

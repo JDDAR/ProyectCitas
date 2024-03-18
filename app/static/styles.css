@@ -41,6 +41,9 @@ body {
   flex-direction: column;
   gap: 20%;
 }
+.sectionHomeTable{
+  display: flex;
+}
 
 /* Estilos Botones */
 .botonPrimary {

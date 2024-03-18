@@ -10,7 +10,7 @@
     <!-- Links Estilos Generales -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'info/infoUser.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/formCrear.css')}}">
 
   </head>
   <body>
@@ -41,66 +41,63 @@
         <nav>
           <div class="headerRight">
             <h3>SALUD.PY</h3>
-            <p>Crear Nuevo Usuario</p>
+            <p>Crear usuarios</p>
           </div>
         </nav>
-        <article class="articleForm">
-          <nav class="container navForm" >
-            <h3 class="titleForm" >Nuevo Medico</h3>
-            <a  class="btn btn-success" href="http://127.0.0.1:5000/medicos">Lista de Medicos</a>
-          </nav>
+        <!-- Seccion Formulario  ******************************************************* -->
+        <section class="sectionForm">
+          <article class="articleForm">
+            <nav class="navForm" >
+              <h3 class="titleForm" >Nuevo Medico</h3>
+              <a  class="botonPrimary" href="http://127.0.0.1:5000/medicos">Lista de Medicos</a>
+            </nav>
 
-          <form method="post" class="formForm">
-            <div class="mb-3">
-              <label for="nombres" class="form-label">Nombres</label>
-              <input type="text" name="nombres" class="form-control" id="nombres" aria-describedby="emailHelp" required>
-            </div>
-            <div class="mb-3">
-              <label for="apellidos" class="form-label">Apellidos</label>
-              <input type="text" name="apellidos" class="form-control" id="apellidos" required>
-            </div>
-            <section class="sectionIntoForm">
-              <div class="col-sm-3">
-                <label for="tipoIdentificacion" class="form-label">Tipo de identificacion</label>
-                <select class="form-select" name="tipoID" aria-label="Default select example" required>
-                  <option value="TI">T.I</option>
-                  <option value="CC">C.c</option>
+            <form method="post" class="formPrimary">
+              <div class="mb-3">
+                <label for="nombres" class="form-label">Nombres</label>
+                <input type="text" name="nombres" class="form-control" id="nombres" aria-describedby="emailHelp" required>
+              </div>
+              <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" name="apellidos" class="form-control" id="apellidos" required>
+              </div>
+              <section class="sectionIntoForm">
+                <div class="col-sm-3">
+                  <label for="tipoIdentificacion" class="form-label">Tipo de identificacion</label>
+                  <select class="form-select" name="tipoID" aria-label="Default select example" required>
+                    <option value="TI">T.I</option>
+                    <option value="CC">C.c</option>
+                  </select>
+                </div>
+                <div class="col-sm-4">
+                  <label for="nIdentificacion" class="form-label">Numero de identificacion</label>
+                  <input type="text" name="numeroID" class="form-control" id="nIdentificacion" required>
+                </div>
+                <div class="col-sm-4">
+                  <label for="nRegistro" class="form-label">Registro medico</label>
+                  <input type="text" name="registroMedico" class="form-control" id="nRegistro" required>
+                </div>
+              </section>
+              <div class="mb-3">
+                <label for="especialidad" class="form-label">Especialidad: </label>
+                <select class="form-select"  name="especialidad" aria-label="Default select example" id="especialidad" required >
+                  {% for especialidad in especialidades %}
+                  <option >{{especialidad }}</option>
+                  {% endfor %}
                 </select>
               </div>
-              <div class="col-sm-4">
-                <label for="nIdentificacion" class="form-label">Numero de identificacion</label>
-                <input type="text" name="numeroID" class="form-control" id="nIdentificacion" required>
-              </div>
-              <div class="col-sm-4">
-                <label for="nRegistro" class="form-label">Registro medico</label>
-                <input type="text" name="registroMedico" class="form-control" id="nRegistro" required>
-              </div>
-            </section>
-            <div class="mb-3">
-              <label for="especialidad" class="form-label">Especialidad: </label>
-              <select class="form-select"  name="especialidad" aria-label="Default select example" id="especialidad" required >
-                {% for especialidad in especialidades %}
-                <option >{{especialidad }}</option>
-                {% endfor %}
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary botonForm">Crear Nuevo Medico</button>
-          </form>
-        </article>
-        <article class="articleFormRight">
-          <h4 class="titleForm" >Crear nuevo usuario</h4>
-          <nav class="container navFormRight" >
-            <a class="btn btn-secondary" href="http://127.0.0.1:5000/medicos/create"> + Crear Medicos</a>
-            <a class="btn btn-success" href="http://127.0.0.1:5000/pacientes/create"> + Crear pacientes</a>
-            <a class="btn btn-success" href="http://127.0.0.1:5000/consultorios/create"> + Crear Consultorio</a>
-          </nav> 
-          <h4 class="titleFormCita" >Crear nueva Cita</h4>
-          <div class="container navFormRight">
-            <a class="btn btn-success" href="http://127.0.0.1:5000/citas/create"> + Crear Cita</a>
-          </div>
-        </article>
+              <button type="submit" class="botonPrimary botonForm">Crear Nuevo Medico</button>
+            </form>
+          </article>
+          <article class="articleFormRight">
+            <a class="botonPrimary" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-doctor"></i></span> Crear Medicos</a>
+            <a class="botonLine" href="http://127.0.0.1:5000/pacientes/create"><span><i class="fa-solid fa-user-plus"></i></span> Crear pacientes</a>
+            <a class="botonLine" href="http://127.0.0.1:5000/consultorios/create"><span><i class="fa-solid fa-house-medical-flag"></i></span> Crear Consultorio</a>
+          </article>
+        </section>
+        <!-- Fin seccion formulario -->
+
       </section>
-    </section>
   </body>
 </html>
 
