@@ -1,0 +1,58 @@
+:root { 
+  /*Colors */
+  --color-primary: #E9EBEC;
+  --color-secundary: #10B8B9;
+  --color-font : #1E1E1E; 
+  --color-font-text: #222426;
+  --color-bg-secondary: #f1f1f1;
+  --color-extra-bg: #D9D9D9;
+  --color-delete: #FC7F7F;
+  --color-upgrade:#008B2F;
+  --color-details:#7057D2;
+  --color-extra-rgba: rgba(34, 36, 38, 0.17);
+  --color-icon-rgba:rgba(34, 36, 38, 0.56);
+  /*Lineas*/
+  --linea-color: 1px solid var(--color-extra-rgba);
+  /*Botones */
+  --border-butom: 1px solid var(--color-secundary);
+}
+
+.navLeft {
+  width: 15%;
+  border-right: var(--linea-color);
+  height: 100vh;
+  background: var(--color-bg-secondary);
+}
+.logoNav {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logoNav span {
+  font-size: 1.5rem;
+  border: var(--border-butom);
+  padding: 14px 20px;
+  border-radius: 6px;
+  color: var(--color-secundary);
+}
+.navMenuLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navMenuLeft ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.navLeft ul li a {
+  text-decoration: none;
+  color: var(--color-font-text);
+}
+.navLeft ul li a span {
+  color: var(--color-icon-rgba);
+}
+

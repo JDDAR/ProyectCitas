@@ -9,6 +9,7 @@
     <title>Lista Medicos</title>
     <!-- Links Estilos Generales -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'info/infoUser.css')}}">
 
   </head>
@@ -26,13 +27,13 @@
 
     <section class="sectionHomeTable">
       <section class="navLeft">
-        <div class="logoNav"></div>
+        <div class="logoNav"><span><i class="fa-solid fa-staff-snake"></i></span></div>
         <div class="navMenuLeft">
           <ul>
-            <li><a href=""><span><i class="fa-solid fa-house"></i></span>HOME</a></li>
-            <li><a href=""><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
-            <li><a href=""><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
-            <li><a href=""><span><i class="fa-solid fa-file-circle-plus"></i></span>CREAR CITA</a></li>
+            <li><a class="botonLineNone" href="http://127.0.0.1:5000/"><span><i class="fa-solid fa-house"></i></span>HOME</a></li>
+            <li><a class="botonPrimary" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
+            <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
+            <li><a class="botonLineNone" href="http://127.0.0.1:5000/citas/create"><span><i class="fa-solid fa-file-circle-plus"></i></span>CREAR CITA</a></li>
           </ul>
         </div>
       </section>
@@ -44,10 +45,10 @@
           </div>
           <div class="navInfoRight">
             <ul>
-              <li><a class="botonPrimary" href="http://127.0.0.1:5000/medicos"><i class="fa-solid fa-user-doctor"></i>Medicos</a> </li>
-              <li><a class="botonLine" href="http://127.0.0.1:5000/pacientes"><i class="fa-solid fa-user"></i> Pacientes </a></li>
-              <li><a class="botonLine" href="http://127.0.0.1:5000/consultorios"><i class="fa-solid fa-house-medical-flag"></i>Consultorios </a></li>
-              <li><a class="botonLine" href="http://127.0.0.1:5000/citas"><i class="fa-solid fa-file-export"></i>Citas</a></li>
+              <li><a class="botonPrimary" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-user-doctor"></i></span>Medicos</a> </li>
+              <li><a class="botonLine" href="http://127.0.0.1:5000/pacientes"><span><i class="fa-solid fa-user"></i></span> Pacientes </a></li>
+              <li><a class="botonLine" href="http://127.0.0.1:5000/consultorios"><span><i class="fa-solid fa-house-medical-flag"></i></span>Consultorios </a></li>
+              <li><a class="botonLine" href="http://127.0.0.1:5000/citas"><span><i class="fa-solid fa-file-export"></i></span>Citas</a></li>
             </ul>
           </div>
         </nav>

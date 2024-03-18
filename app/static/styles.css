@@ -4,10 +4,21 @@
   --font-family-style : "Sarabun", sans-serif;
 
   /*Colors */
-
   --color-primary: #E9EBEC;
   --color-secundary: #10B8B9;
   --color-font : #1E1E1E; 
+  --color-font-text: #222426;
+  --color-bg-secondary: #f1f1f1;
+  --color-extra-bg: #D9D9D9;
+  --color-delete: #FC7F7F;
+  --color-upgrade:#008B2F;
+  --color-details:#7057D2;
+  --color-extra-rgba: rgba(34, 36, 38, 0.17);
+  --color-icon-rgba:rgba(34, 36, 38, 0.56);
+  /*Lineas*/
+  --linea-color: 1px solid var(--color-extra-rgba);
+  /*Botones */
+  --border-butom: 1px solid var(--color-secundary);
 
 }
 *{
@@ -31,8 +42,33 @@ body {
   gap: 20%;
 }
 
-/*Botones*/
-
+/* Estilos Botones */
+.botonPrimary {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border-radius: 6px;
+  padding: 14px 28px;
+  background-color: var(--color-secundary);
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.botonLine {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border-radius: 6px;
+  padding: 14px 28px;
+  border: 1px solid var(--color-secundary);
+}
+.botonLineNone {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border-radius: 6px;
+  padding: 14px 28px;
+}
 .butonPrimary {
   padding: 15px 25px;
   background: var(--color-secundary);

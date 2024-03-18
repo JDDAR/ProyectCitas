@@ -1,8 +1,6 @@
 
-:root {
-  
+:root { 
   /*Colors */
-
   --color-primary: #E9EBEC;
   --color-secundary: #10B8B9;
   --color-font : #1E1E1E; 
@@ -13,14 +11,11 @@
   --color-upgrade:#008B2F;
   --color-details:#7057D2;
   --color-extra-rgba: rgba(34, 36, 38, 0.17);
-  
+  --color-icon-rgba:rgba(34, 36, 38, 0.56);
   /*Lineas*/
-
   --linea-color: 1px solid var(--color-extra-rgba);
-
   /*Botones */
   --border-butom: 1px solid var(--color-secundary);
-
 }
 .delete {
   background: red;
@@ -30,12 +25,6 @@
 }
 .sectionHomeTable{
   display: flex;
-}
-.navLeft {
-  width: 20%;
-  border-right: var(--linea-color);
-  height: 100vh;
-  background: var(--color-bg-secondary);
 }
 .contenidoRight{
   width: 100%;
@@ -60,28 +49,13 @@
   list-style-type: none;
   gap: 35px;
 }
-.botonPrimary {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  border-radius: 6px;
-  padding: 14px 28px;
-  background-color: var(--color-secundary);
-  text-decoration: none;
-  color: var(--color-primary);
-  font-weight: 600;
-}
-.botonLine {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  border-radius: 6px;
-  padding: 14px 28px;
-  border: 1px solid var(--color-secundary);
-}
+
 .navInfoRight ul li a {
   text-decoration: none;
   color: var(--color-font-text);
+}
+.navInfoRight ul li a span {
+  color: var(--color-icon-rgba);
 }
 
 /*header table */
