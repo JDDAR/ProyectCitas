@@ -81,7 +81,7 @@ def create_medico():
         ##añadirlo a sqlalchemy 
         db.session.add(new_medico)
         db.session.commit()
-        flash("Medico registrado exitosamente")
+        flash('Medico registrado exitosamente', 'actualizado')
         return redirect('/medicos')
 
 ############### Creando rutas para nuevo paciente 
@@ -154,7 +154,7 @@ def delete_medico(id):
     medico_delete = Medico.query.get(id)
     db.session.delete(medico_delete)
     db.session.commit()
-    flash("Medico eliminado exitosamente")
+    flash('Eliminado exitosamente', 'delete')
     return redirect('/medicos')
 
 
