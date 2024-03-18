@@ -78,7 +78,21 @@ body {
   text-align: center;
   border-radius: 6px;
 }
-
+/*Estilos header Right*/
+.contenidoRight{
+  width: 100%;
+  padding-right: 35px;
+}
+.headerRight {
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: var(--linea-color);
+}
+.headerRight h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
 /*Saludo Home*/
 .articleHello {
   margin-top: 5%;

@@ -26,20 +26,7 @@
 .sectionHomeTable{
   display: flex;
 }
-.contenidoRight{
-  width: 100%;
-  padding-right: 35px;
-}
-.headerRight {
-  padding: 25px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: var(--linea-color);
-}
-.headerRight h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
+
 /*Nav info Botones*/
 .navInfoRight{
   padding: 25px;
