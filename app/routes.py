@@ -100,7 +100,7 @@ def create_paciente():
         db.session.add(new_paciente)
         db.session.commit()
         flash("Paciente registrado exitosamente")
-        return redirect('/Pacientes')
+        return redirect('/pacientes')
 
 ############## Creando Nuevos consultorios 
 
@@ -118,9 +118,19 @@ def create_consultorio():
 ############## Creando nuevas citas  
 
 @app.route('/citas/create', methods = ['GET', 'POST'])
-def create_cita():
+def get_cita_paciente():
     if(request.method == 'GET'):
-        return render_template('citas/cita_form.html') 
+        return render_template('citas/cita_form.html')
+    elif(request.method == 'POST'):
+        identPaciente = request.form['identificacion']
+        paciente = Paciente.query.all()
+        return render_template('citas/cita_formNext2.html', paciente = paciente, identPaciente = identPaciente)
+def get_cita_medico():
+    especialidades = ['Cardiologia', 'Pediatria', 'Psicologia']
+    medico = Medico.query.all()
+    if(request.method == 'GET'):
+        return render_template('citas/cita_formNext2.html', especialidades = especialidades)
+
 
 ############# Actualizaciones de datos  
 @app.route('/medicos/update/<int:id>', methods = ['GET', 'POST'])
@@ -145,7 +155,6 @@ def update_paciente(id):
     paciente_update = Paciente.query.get(id)
     if(request.method == 'GET'):
         return render_template('pacientes/paciente_update.html', paciente_update = paciente_update)
-
 
 ############## Eliminando registro 
 

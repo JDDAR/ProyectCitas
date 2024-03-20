@@ -1,0 +1,68 @@
+:root {
+  /*Colors */
+  --color-primary: #E9EBEC;
+  --color-secundary: #10B8B9;
+  --color-font : #1E1E1E; 
+  --color-font-text: #222426;
+  --color-bg-secondary: #f1f1f1;
+  --color-extra-bg: #D9D9D9;
+  --color-delete: #FC7F7F;
+  --color-upgrade:#008B2F;
+  --color-details:#7057D2;
+  --color-extra-rgba: rgba(34, 36, 38, 0.17);
+  --color-icon-rgba:rgba(34, 36, 38, 0.56);
+  /*Lineas*/
+  --linea-color: 1px solid var(--color-extra-rgba);
+  /*Botones */
+  --border-butom: 1px solid var(--color-secundary);
+}
+
+.formDataUser{
+  display: flex;
+  margin-top: 35px;
+  gap: 50px;
+  border-bottom: 1px solid var(--color-extra-rgba);
+  padding-bottom: 35px;
+  margin-bottom: 35px;
+}
+.formDataUser p {
+  font-weight: 600;
+}
+.formDataUser span {
+  font-weight: 100;
+  margin-right: 15px;
+}
+
+.formEspecialidad {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.formEspecialidad input{
+  cursor: pointer;
+}
+.formEspecialidad label span {
+  display: flex;
+  flex-direction: column;
+}
+.formEspecialidad label span i {
+  font-size: 1.5rem;
+  color: var(--color-secundary);
+}
+.formEspecialidad input[type=radio] {
+  display: none;
+}
+.formEspecialidad input[type=radio]:checked + label, 
+.formEspecialidad input[type=radio]:checked + label i {   
+  color: var(--color-bg-secondary);  
+  background: var(--color-secundary);
+  border-radius: 6px;
+}
+
+.botonSeleccionar {
+  width: 100%;
+  border: none;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+}

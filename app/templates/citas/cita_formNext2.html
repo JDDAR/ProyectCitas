@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/formCrear.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/cita_formNext.css')}}">
 
   </head>
   <body>
@@ -48,24 +49,58 @@
         <section class="sectionForm">
           <article class="articleForm">
             <nav class="navForm" >
-              <h3 class="titleForm" >Nuevo Cita</h3>
+              <h3 class="titleForm" >Nueva Cita</h3>
               <a  class="botonPrimary" href="http://127.0.0.1:5000/citas">Lista de Citas</a>
             </nav>
 
+            {% for p in paciente %}
+            {% if p.numero_identificacion|int() == identPaciente|int()%}
             <form method="post" class="formPrimary">
-              <div class="mb-3">
-                <label for="nombres" class="form-label">Numero documento del paciente</label>
-                <input type="text" name="identificacion" class="form-control" id="nombres" aria-describedby="emailHelp" required>
-              </div>
-              <button type="submit" class="botonPrimary botonForm">Buscar Usuario</button>
+              <h3>Datos del paciente</h3>
+              <section class="formDataUser">
+                <div class="dataUserLeft">
+                  <p><span>Nombres: </span> {{p.nombres}}</p>
+                  <p><span>Tipo de Identificación: </span> {{p.tipo_identificacion}}</p>
+                  <p><span>Altura:</span>{{p.altura}}</p>
+                </div>
+                <div class="dataUserRight">
+                  <p><span>Apellidos:</span>{{p.apellidos}}</p>
+                  <p><span>Numero de Identificación:</span>{{p.numero_identificacion}}</p>
+                  <p><span>Tipo de sangre:</span>{{p.tipo_sangre}}</p>
+                </div>
+                <input style="display: none;" type="radio" name="identificacion" checked="checked" value="{{p.numero_identificacion}}">
+              </section>
+              {%endif%}
+              {% endfor %}
+              <h3>Servicios Disponibles</h3>
+              <section class="formEspecialidad">
+                <div>
+                  <input type="radio" name="especialidad" id="m2" value="Neurologia">
+                  <label for="m2"><span class="botonLine"><i class="fa-solid fa-brain"></i><p>Neurologia</p></span></label>
+                </div>
+                <div>
+                  <input type="radio" name="especialidad" id="h2" value="Pediatria">
+                  <label for="h2"><span class="botonLine"><i class="fa-solid fa-hands-holding-child"></i><p>Pediatria</p></span></label>
+                </div>
+                <div>
+                  <input type="radio" name="especialidad" id="h3" value="Cardiologia">
+                  <label for="h3"><span class="botonLine"><i class="fa-solid fa-heart-pulse"></i><p>Cardiologia</p></span></label>
+                </div>
+                <div>
+                  <input type="radio" name="especialidad" id="h4" value="Psicologia">
+                  <label for="h4"><span class="botonLine"><i class="fa-solid fa-head-side-cough"></i><p>Psicologia</p></span></label>
+                </div>
+              </section>
+
+              <button type="submit" class="botonPrimary botonSeleccionar">Seleccionar</button>
             </form>
 
+            <h1>{{especialidades}}</h1>
+
           </article>
-          
         </section>
         <!-- Fin seccion formulario -->
 
       </section>
   </body>
 </html>
-
