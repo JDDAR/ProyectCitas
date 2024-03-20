@@ -1,6 +1,7 @@
 from . import app, db
 from .models import Medico, Paciente, Consultorio, Cita 
 from flask import render_template, request, flash, redirect
+from datetime import datetime
 
 ##Creando ruta inicio home index 
 
@@ -119,17 +120,47 @@ def create_consultorio():
 
 @app.route('/citas/create', methods = ['GET', 'POST'])
 def get_cita_paciente():
-    if(request.method == 'GET'):
-        return render_template('citas/cita_form.html')
+    if(request.method == 'GET'): 
+        return render_template('citas/cita_form.html' )
     elif(request.method == 'POST'):
+        especialidad = [ 'Cardiologia', 'Pediatria', 'Psicologia']
         identPaciente = request.form['identificacion']
         paciente = Paciente.query.all()
-        return render_template('citas/cita_formNext2.html', paciente = paciente, identPaciente = identPaciente)
+        return render_template('citas/cita_formNext2.html', paciente = paciente, identPaciente = identPaciente, especialidad = especialidad)
+
+@app.route('/citas/create/asignacion', methods = ['GET', 'POST'])
 def get_cita_medico():
-    especialidades = ['Cardiologia', 'Pediatria', 'Psicologia']
-    medico = Medico.query.all()
     if(request.method == 'GET'):
-        return render_template('citas/cita_formNext2.html', especialidades = especialidades)
+        return render_template('citas/cita_formNext2.html')
+    elif(request.method == 'POST'):
+        identPaciente = request.form['identificacion']
+        especialidadSelect = request.form['especialidad']
+        paciente = Paciente.query.all()
+        medico = Medico.query.all()
+        consul = Consultorio.query.all()
+        return render_template('citas/cita_formNext3.html', 
+                               identPaciente = identPaciente,
+                               especialidadSelect = especialidadSelect,
+                               paciente = paciente,
+                               medico = medico, 
+                               consultorios = consul               
+                               )
+@app.route('/citas/create/asignacionCreate', methods = ['GET', 'POST'])
+def get_create_cita():
+    if(request.method == 'GET'):
+        return render_template('citas/cita_formNext3.html')
+    elif(request.method == 'POST'):
+        new_cita = Cita( fecha = datetime.strptime(request.form['data'], '%Y-%m-%dT%H:%M'),
+                         paciente_id = str(request.form['idPaciente']),
+                         medico_id = str(request.form['doctor']),
+                         consultorio_id = str(request.form['consultorio'])
+                        )
+        db.session.add(new_cita)
+        db.session.commit()
+        flash('Cita asignada')
+        return redirect('/citas')
+
+
 
 
 ############# Actualizaciones de datos  

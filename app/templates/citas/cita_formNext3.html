@@ -55,7 +55,7 @@
 
             {% for p in paciente %}
             {% if p.numero_identificacion|int() == identPaciente|int()%}
-            <form method="post" class="formPrimary" action="./create/asignacion">
+            <form method="post" class="formPrimary" action="./asignacionCreate" >
               <h3>Datos del paciente</h3>
               <section class="formDataUser">
                 <div class="dataUserLeft">
@@ -68,23 +68,44 @@
                   <p><span>Numero de Identificación:</span>{{p.numero_identificacion}}</p>
                   <p><span>Tipo de sangre:</span>{{p.tipo_sangre}}</p>
                 </div>
-                <input style="display: none;" type="radio" name="identificacion" checked="checked" value="{{p.numero_identificacion}}">
+                <input style="display: none;" type="radio" name="idPaciente" checked="checked" value="{{p.id}}">
               </section>
               {%endif%}
               {% endfor %}
-              <h3>Servicios Disponibles</h3>
-              <section class="especialidadSelect">
-                <select name="especialidad" >
-                  {%for e in especialidad%}
-                  <option value="{{e}}">{{e}}</option>
-                  {%endfor%}
-                </select>
-                <button type="submit" class="botonPrimary botonSeleccionar">Seleccionar</button>
+
+              <section class="sectionEspecialidadSelect">
+                <section class="serviSelect">
+                  <h3>Servicio Selecionado</h3>
+                  <h4>{{especialidadSelect}}</h4>
+                </section>
+                <section class="docDisponible">
+                  <h3>Doctores Disponibles para {{especialidadSelect}}</h3>
+                  <select name="doctor" id="" required>
+                    {%for doc in medico %}
+                    {% if doc.especialidad == especialidadSelect %}
+                    <option value="{{doc.id}}">{{doc.nombres}} {{doc.apellidos}}</option>
+                    {%endif%}
+                    {%endfor%}
+                  </select>
+                </section>
               </section>
+                <h3>Datos de la cita </h3> 
+              <section class="dataCita">
+                <section class="dataSection">
+                    <h4>Fecha y hora</h4>
+                    <input name="data" type="datetime-local">
+                </section>
+                <section class="consulSection">
+                    <h4>Consultorios</h4>
+                    <select name="consultorio" id="">
+                    {% for consul in consultorios%}
+                    <option value="{{consul.id}}">{{consul.numero}}</option>
+                    {%endfor%}
+                    </select>
+                </section>
+              </section>
+              <button type="submit" class="botonPrimary botonAsignar">Asignar Cita</button>
             </form>
-            {% for espec in especialidadSelect%}
-            <p>{{espec}}</p>
-            {%endfor%}
           </article>
         </section>
         <!-- Fin seccion formulario -->

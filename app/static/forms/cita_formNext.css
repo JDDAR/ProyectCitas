@@ -16,7 +16,7 @@
   /*Botones */
   --border-butom: 1px solid var(--color-secundary);
 }
-
+/*Informacion del usuaro */
 .formDataUser{
   display: flex;
   margin-top: 35px;
@@ -33,36 +33,65 @@
   margin-right: 15px;
 }
 
-.formEspecialidad {
-  display: flex;
-  justify-content: space-between;
+/*informacion de la especialidad*/
+
+.especialidadSelect {
   margin-top: 35px;
-}
-.formEspecialidad input{
-  cursor: pointer;
-}
-.formEspecialidad label span {
   display: flex;
-  flex-direction: column;
-}
-.formEspecialidad label span i {
-  font-size: 1.5rem;
-  color: var(--color-secundary);
-}
-.formEspecialidad input[type=radio] {
-  display: none;
-}
-.formEspecialidad input[type=radio]:checked + label, 
-.formEspecialidad input[type=radio]:checked + label i {   
-  color: var(--color-bg-secondary);  
-  background: var(--color-secundary);
-  border-radius: 6px;
+  gap: 35px;
 }
 
 .botonSeleccionar {
-  width: 100%;
   border: none;
   justify-content: center;
   font-size: 1rem;
   cursor: pointer;
+}
+
+/* Especialidad selecionada  */
+
+.sectionEspecialidadSelect {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid var(--color-extra-rgba);
+  display: flex;
+}
+.sectionEspecialidadSelect h3 {
+  margin-bottom: 25px;
+}
+.sectionEspecialidadSelect h4 {
+  font-weight: 100;
+}
+.serviSelect {
+  width: 30%;
+}
+.docDisponible {
+  border-left:  1px solid var(--color-extra-rgba);
+  padding-left: 35px;
+  width: 50%;
+}
+
+/* Datos de la cita medica  */
+
+.dataCita {
+  display: flex;
+  margin-top: 25px; 
+  gap: 35px;
+  border-bottom: 1px solid var(--color-extra-rgba);
+  padding-bottom: 35px;
+  margin-bottom: 35px;
+}
+.dataCita h4 {
+  margin-bottom: 25px;
+}
+.consulSection {
+ border-left: 1px solid var(--color-extra-rgba);
+ padding-left: 35px;
+}
+.botonAsignar {
+  width: 100%;
+  border: none;
+  justify-content: center;
+  font-size: 1rem;
 }
