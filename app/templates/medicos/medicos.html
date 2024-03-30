@@ -11,19 +11,87 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'info/infoUser.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'modals/messages.css')}}">
 
   </head>
   <body>
-    <!-- Mensaje de alerta Eliminar usuario --> 
-    {% with messages = get_flashed_messages() %}
+    <!-- Mensaje: Confirmacion de eliminar usuario -->
+    {% with messages = get_flashed_messages(category_filter=["delete"]) %}
     {% if messages %}
-    <div class='flashes delete actualizado'>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
+    {% for message in messages %}
+    <div class="delete" >
+      <article>
+        <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Eliminar Medico</h2>
+        <h3>{{ message }}</h3>
+        <form method="post">
+          <div class="mensajeBoton">
+            <input style="display: none;" type="radio" name="idDelete" checked="checked" value="{{medicoD.id}}">
+            <a class="butonPrimary" href="http://127.0.0.1:5000/medicos">Cancelar</a>
+            <button type="submit" class="botonPrimary"> Eliminar</button>
+          </div>
+        </form>
+      </article>
     </div>
+    {% endfor %}
     {% endif %}
     {% endwith %}
+
+    <!-- Mensaje: Eliminando El usuario  -->
+    {% with messages = get_flashed_messages(category_filter=["deletetwo"]) %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="deletetwo" >
+      <article>
+        <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Medico Eliminado</h2>
+        <h3>{{ message }}</h3>
+      </article>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <!-- Mensaje: Paciente Actualizado  -->
+    {% with messages = get_flashed_messages(category_filter=["upgrade"]) %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="upgrade" >
+      <article>
+        <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Medico Actualizado</h2>
+        <h3>{{ message }}</h3>
+      </article>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <!-- Mensaje: Detalles -->
+    {% with messages = get_flashed_messages(category_filter=["menssageDetails"]) %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="menssageDetails" >
+      <article>
+        <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Medico {{medicoId.nombres}}</h2>
+        <section class="sectionDetails">
+          <div>
+            <p>Nombres: <span>{{medicoId.nombres}}</span></p>
+            <p>Tipo de identificacion: <span>{{medicoId.tipo_identificacion}}</span></p>
+            <p>Registro Medico: <span>{{medicoId.registro_medico}}</span></p>
+          </div>
+          <div>
+            <p>Apellidos: <span>{{medicoId.apellidos}}</span></p>
+            <p>Numero de Identificacion: <span>{{medicoId.numero_identificacion}}</span></p>
+            <p>Especialidad: <span>{{medicoId.especialidad}}</span></p>
+          </div>
+        </section>
+        <div class="mensajeBoton">
+          <a href="http://127.0.0.1:5000/medicos" class="botonPrimary bontonDetails"> Lista Medicos </a>
+          <a href="/medicos/update/{{ medicoId.id }}" class="botonPrimary" >Editar</a>
+        </div>
+      </article>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
 
     <section class="sectionHomeTable">
       <section class="navLeft">

@@ -1,0 +1,237 @@
+:root {
+  --font-family-style : "Sarabun", sans-serif;
+
+  /*Colors */
+  --color-primary: #E9EBEC;
+  --color-secundary: #10B8B9;
+  --color-font : #1E1E1E; 
+  --color-font-text: #222426;
+  --color-bg-secondary: #f1f1f1;
+  --color-extra-bg: #D9D9D9;
+  --color-extra-rgba: rgba(34, 36, 38, 0.17);
+  --color-icon-rgba:rgba(34, 36, 38, 0.56);
+
+  /*Color Mensajes*/
+  --color-delete: #FC7F7F;
+  --color-upgrade:#008B2F;
+  --color-details:#7057D2;
+  /*Lineas*/
+  --linea-color: 1px solid var(--color-extra-rgba);
+  /*Botones */
+  --border-butom: 1px solid var(--color-secundary);
+
+}
+/*Estilos Mensajes -----------------------------------*/
+
+.existe, 
+.exito,
+.delete,
+.menssageDetails{
+  display: flex; 
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-extra-rgba);
+  backdrop-filter: blur(8.6px);
+  -webkit-backdrop-filter: blur(8.6px);
+}
+.existe article, 
+.exito article,
+.delete article,
+.menssageDetails article
+{
+  width: 25%;
+  border-radius: 12px;
+  background: var(--color-primary);
+  padding: 25px;
+}
+.existe article h2, 
+.exito article h2,
+.delete article h2,
+.menssageDetails article h2
+{
+  border-bottom: 1px solid var(--color-extra-bg);
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  text-align: center;
+  font-weight: 200;
+  display: flex;
+  gap: 25px;
+}
+.delete article h2 {
+  color: var(--color-delete);
+}
+.existe article h2 {
+  color: var(--color-delete);
+}
+.exito article h2 {
+  color: var(--color-upgrade);
+}
+.existe article h3,
+.exito article h3,
+.delete article h3{
+  text-align: center;
+}
+.existe article p,
+.exito article p,
+.delete article p{
+  text-align: center;
+  margin-bottom: 25px;
+}
+.existe a {
+  justify-content: center;
+}
+.mensajeBoton {
+  margin-top: 25px;
+  border-top: 1px solid var(--color-extra-bg);
+  display: flex;
+  justify-content: right;
+  gap: 25px;
+  padding-top: 25px;
+}
+/*Confirmar eliminacion */
+
+.delete button {
+  background: var(--color-delete);
+}
+.delete article {
+  border-top: 5px solid var(--color-delete);
+  border-bottom: 5px solid var(--color-delete);
+}
+/* Usuario Creado Satisfactoriamaente */
+
+.exito article {
+  border-top: 5px solid var(--color-upgrade);
+  border-bottom: 5px solid var(--color-upgrade);
+}
+
+/* Mesanje: Eliminado *******************  *******  ***  ***  */
+
+.deletetwo,
+.upgrade{
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  background: var(--color-bg-secondary);
+  border-left: 5px solid var(--color-delete);
+  padding: 25px;
+  border-radius: 12px;
+
+  -webkit-box-shadow: 3px 6px 4.5px -0.5px var(--color-icon-rgba);
+  -moz-box-shadow: 3px 6px 4.5px -0.5px var(--color-icon-rgba);
+  box-shadow: 3px 6px 4.5px -0.5px var(--color-icon-rgba);
+
+}
+.deletetwo h2,
+.upgrade h2{
+  color: var(--color-delete);
+  border-bottom: 1px solid var(--color-extra-bg);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 25px;
+}
+.deletetwo h3,
+.upgrade h3{
+  font-size: 1rem;
+  font-weight: 100;
+}
+/* Mensaje Usuario actualizado */
+.upgrade h2 {
+  color: var(--color-upgrade);
+}
+.upgrade{
+  border-left: 5px solid var(--color-upgrade);
+}
+
+/*Mensaje detalles de usuarios  */
+
+.menssageDetails article {
+  width: 30%;
+  border-top: 5px solid var(--color-details);
+  border-bottom: 5px solid var(--color-details);
+}
+.sectionDetails {
+  display: flex;
+  justify-content: space-between;
+}
+.menssageDetails h2 {
+  color: var(--color-details);
+}
+.sectionDetailsCitas p,
+.sectionDetails p {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  font-weight: 100;
+}
+.sectionDetailsCitas p span,
+.sectionDetails p span {
+  font-weight: 600;
+}
+.bontonDetails {
+  background: var(--color-details);
+}
+
+/* Mensajes detalle citas *************************/
+.sectionDetailsCitas h3 {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-details);
+}
+
+.sectionDetailsPaciente,
+.detailOrden{
+  border-bottom: 1px solid var(--color-extra-bg);
+  margin-bottom: 25px;
+}
+.detailOrden {
+  display: flex;
+  justify-content: space-between;
+}
+.sectionDetailsPaciente div {
+  display: flex;
+  justify-content: space-between;
+}
+.sectionDetailsMedico {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

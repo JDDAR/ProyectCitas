@@ -10,11 +10,13 @@
   --color-font-text: #222426;
   --color-bg-secondary: #f1f1f1;
   --color-extra-bg: #D9D9D9;
+  --color-extra-rgba: rgba(34, 36, 38, 0.17);
+  --color-icon-rgba:rgba(34, 36, 38, 0.56);
+
+  /*Color Mensajes*/
   --color-delete: #FC7F7F;
   --color-upgrade:#008B2F;
   --color-details:#7057D2;
-  --color-extra-rgba: rgba(34, 36, 38, 0.17);
-  --color-icon-rgba:rgba(34, 36, 38, 0.56);
   /*Lineas*/
   --linea-color: 1px solid var(--color-extra-rgba);
   /*Botones */
@@ -45,7 +47,13 @@ body {
   display: flex;
 }
 
-/* Estilos Botones */
+/* EStilos de colores */
+
+.colorBgDelete{
+  background: var(--color-delete);
+}
+
+/* Estilos Botones ---------------------------------*/
 .botonPrimary {
   display: flex;
   gap: 15px;
@@ -56,6 +64,7 @@ body {
   text-decoration: none;
   color: var(--color-primary);
   font-weight: 600;
+  border: none;
 }
 .botonLine {
   display: flex;
@@ -80,8 +89,10 @@ body {
   font-weight: bold;
   text-align: center;
   border-radius: 6px;
+  border: none;
 }
-/*Estilos header Right*/
+
+/*Estilos header Right--------------------------------*/
 .contenidoRight{
   width: 100%;
   padding-right: 35px;
@@ -96,7 +107,8 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
 }
-/*Saludo Home*/
+
+/*Saludo Home------------------------------------------*/
 .articleHello {
   margin-top: 5%;
   line-height: 3rem;
@@ -113,7 +125,7 @@ body {
   font-weight: 100;
   margin-bottom: 35px;
 }
-/*Cards Seleccion*/
+/*Cards Seleccion-------------------------------------------*/
 .cardsSelection {
   display: flex;
   justify-content: space-between;
@@ -143,7 +155,7 @@ body {
   margin-bottom: 35px;
 }
 
-/* Footer*/
+/* Footer-----------------------------------------------------*/
 
 footer {
   height: 20px;

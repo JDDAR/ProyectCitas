@@ -55,3 +55,53 @@ Para crear entidades ----> ORM  --> Objet relational mapper
 
 CLIENTE - SERVIDOR (ARQUITECTURA DE SOFTWARE )
 
+
+    <section class="container sectionHomeTable">
+      <nav class="navPage">
+        <div>   
+          <a class="btn btn-success" href="http://127.0.0.1:5000/medicos">Medicos</a>
+          <a class="btn btn-success" href="http://127.0.0.1:5000/pacientes"> Pacientes </a>
+          <a class="btn btn-secondary" href="http://127.0.0.1:5000/consultorios">Consultorios </a>
+          <a class="btn btn-success" href="http://127.0.0.1:5000/citas">Citas</a>
+        </div>
+      </nav>
+      <section class="sectionTable">
+        <div class="navHeaderTable">
+          <h3 class="titleTable">LISTA DE CONSULTORIOS</h3>
+          <a class="btn btn-primary" href="http://127.0.0.1:5000/consultorios/create">+ Crear nuevo Consultorio</a>
+        </div>
+        <article class="articleTable">
+          <table class="table table-hover">
+            <thead class="table-secondary">
+              <tr>
+                <th>Id</th>
+                <th>Consultorio</th>
+                <th>Ver detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for consultorio in consultorios %}
+              <tr>
+                <td>{{ consultorio.id}}</td>
+                <td>{{ consultorio.numero }}</td>
+                <td><a href="/consultorios/{{ consultorio.id }}">Ver Detalles</a></td>
+              </tr>
+              {% endfor %}       
+            </tbody>
+            <tfoot></tfoot>
+          </table>
+        </article>
+      </section>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+

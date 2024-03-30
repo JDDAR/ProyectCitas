@@ -19,13 +19,13 @@
 
 .sectionForm {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 25px;
 }
 
 .articleForm {
   border: 1px solid var(--color-extra-rgba);
-  width:  50%;
+  width:  70%;
   border-radius: 12px;
   margin: auto;
 }
@@ -74,12 +74,11 @@
 }
 .articleFormRight {
   display: flex;
-  flex-direction: column;
   gap: 25px;
   align-items: flex-end;
+  margin-bottom: 35px;
 }
 .articleFormRight a {
-  width: 100%;
   text-decoration: none;
   color: var(--color-font-text);
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Scripts iconos -->
+    <script src="https://kit.fontawesome.com/6cfff2ec0f.js" crossorigin="anonymous"></script>
+    <title>Actualizando Cita Medica</title>
+    <!-- Links Estilos Generales -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/formCrear.css')}}"> 
+    <link rel="stylesheet" href="{{url_for('static', filename='modals/messages.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'forms/citasUpdate.css')}}"
+  </head>
+  <body>
+
+    <section class="sectionHomeTable">
+      <section class="navLeft">
+        <div class="logoNav"><span><i class="fa-solid fa-staff-snake"></i></span></div>
+        <div class="navMenuLeft">
+          <ul>
+            <li><a class="botonLineNone" href="http://127.0.0.1:5000/"><span><i class="fa-solid fa-house"></i></span>HOME</a></li>
+            <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
+            <li><a class="botonPrimary" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
+            <li><a class="botonLineNone" href="http://127.0.0.1:5000/citas/create"><span><i class="fa-solid fa-file-circle-plus"></i></span>CREAR CITA</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="contenidoRight">
+        <nav>
+          <div class="headerRight">
+            <h3>SALUD.PY</h3>
+            <p>Actualizando Cita Medica</p>
+          </div>
+        </nav>
+        <section class="sectionForm">
+          <article class="articleForm">
+            <nav class="navForm">
+              <h3 class="titleForm" >Actualizar Cita : N° {{cita_update.id}}</h3>
+              <a  class="botonPrimary" href="http://127.0.0.1:5000/citas">Lista de Citas</a>
+            </nav>
+            <form method="post" action="/citas/update/{{cita_update.id}}" class="formPrimary formUpdate">
+              <h3>Datos del Paciente </h3>
+              <section class="citaPaciente">
+                <p>Nombre: <span>{{cita_update.paciente.nombres}}</span></p>
+                <p>apellidos: <span>{{cita_update.paciente.apellidos}}</span></p>
+                <p>N° Identificacion: <span>{{cita_update.paciente.numero_identificacion}}</span></p>
+              </section>
+              <h3>Datos del Medico</h3>
+              <section class="citaMedico">
+                <p>Nombre: <span>{{cita_update.medico.nombres}}</span></p>
+                <p>Apellidos: <span>{{cita_update.medico.apellidos}}</span></p>
+                <p>especialidad: <span>{{cita_update.medico.especialidad}}</span></p>
+              </section>
+              <h3>Datos de la Cita </h3>
+              <section class="citaFecha">
+                <p> Fecha y Hora <input name="data" type="datetime-local" value="{{cita_update.fecha}}" ></p>
+                <p>Consultorio:                     
+                <select name="consultorio" id="">
+                  {% for consul in consultorios%}
+                  <option value="{{consul.id}}" selected >{{cita_update.consultorio.numero}}</option>
+                  {%endfor%}
+                </select></p>
+              </section>
+              <section class="buttonCitas">
+                <button type="submit" class="botonPrimary">Actualizar Datos</button>
+                <a href="/citas/delete/{{ cita_update.id }}" class="butonPrimary">Cancelar la cita</a>
+              </section>
+            </form>
+          </article>
+        </section>
+      </section>
+    </section>
+
+  </body>
+</html>
+
+

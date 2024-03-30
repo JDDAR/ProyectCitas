@@ -3,89 +3,174 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app/styles/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <title>Lista Citas</title>
-    <style>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-      body {
-        background-color: #edf6f9;
-      }
-      .sectionHomeTable {
-        padding-top: 35px;
-      }
-      .navPage {
-        padding-bottom: 35px;
-        display: flex;
-        justify-content: space-between;
-      }
-      .sectionTable {
-
-        border-radius: 12px;
-      }
-      .articleTable {
-        margin: 0;
-        padding-top: 25px;
-        padding-bottom: 25px;
-      }
-      .navHeaderTable {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 25px 0px;
-        border-bottom: 1px solid black;
-      }
-      .sectionHomeTable H3 {
-        font-weight: bold; 
-      }
-    </style>
+    <!--Scripts iconos -->
+    <script src="https://kit.fontawesome.com/6cfff2ec0f.js" crossorigin="anonymous"></script>
+    <title>Lista de Citas</title>
+    <!-- Links Estilos Generales -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'info/infoUser.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'modals/messages.css')}}"
   </head>
-  <body>
-    <section class="container sectionHomeTable">
-      <nav style="padding-bottom: 35px;">
-        <a class="btn btn-success" href="http://127.0.0.1:5000/medicos">Medicos</a>
-        <a class="btn btn-success" href="http://127.0.0.1:5000/pacientes"> Pacientes </a>
-        <a class="btn btn-success" href="http://127.0.0.1:5000/consultorios">Consultorios </a>
-        <a class="btn btn-secondary" href="http://127.0.0.1:5000/citas">Citas</a>
-      </nav>
-      <section class="sectionTable">
-        <div class="navHeaderTable">
-          <h3 class="titleTable">LISTA DE CONSULTORIOS</h3>
-          <a class="btn btn-primary" href="http://127.0.0.1:5000/citas/create">+ Crear nueva Cita</a>
-        </div>
-        <article class="articleTable">
-          <table class="table table-hover">
-            <thead class="table-secondary">
-              <tr>
-                <th>Orden</th>
-                <th>Fecha</th>
-                <th>Paciente</th>
-                <th>Medico</th>
-                <th>Consultorio</th>
-                <th>Ver detalles</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for cita in citas %}
-              <tr>   
-                <td>{{ cita.id }}</td>
-                <td>{{ cita.fecha }}</td>
-                <td>{{ cita.paciente.nombres }}</td>
-                <td>{{ cita.medico.nombres }}</td>
-                <td>{{ cita.consultorio.numero }}</td>
-                <td><a href="/citas/{{ cita.id }}">Ver Detalle</a></td>
-
-              </tr>
-              {% endfor %}      
-            </tbody>
-            <tfoot></tfoot>
-          </table>
+    <body>
+      <!-- Mensaje: Confirmacion de eliminar usuario -->
+      {% with messages = get_flashed_messages(category_filter=["delete"]) %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="delete" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Eliminar Cita Medica</h2>
+          <h3>{{ message }}</h3>
+          <form method="post">
+            <div class="mensajeBoton">
+              <input style="display: none;" type="radio" name="idDelete" checked="checked" value="{{citaD.id}}">
+              <a class="butonPrimary" href="http://127.0.0.1:5000/citas">Cancelar</a>
+              <button type="submit" class="botonPrimary"> Eliminar</button>
+            </div>
+          </form>
         </article>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      <!-- Mensaje: Eliminando El usuario  -->
+      {% with messages = get_flashed_messages(category_filter=["deletetwo"]) %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="deletetwo" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Cita Medica Eliminada</h2>
+          <h3>{{ message }}</h3>
+        </article>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      <!-- MENSAJE: CITA MEDICA ACTUALIZADA   -->
+      {% with messages = get_flashed_messages(category_filter=["upgrade"]) %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="upgrade" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Cita Medica Actualizada</h2>
+          <h3>{{ message }}</h3>
+        </article>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      <!-- MENSAJE: DETALLES -->
+      {% with messages = get_flashed_messages(category_filter=["menssageDetails"]) %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="menssageDetails" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Cita Orden: {{citaId.id}}</h2>
+          <section class="sectionDetailsCitas">
+            <h3>Detalles de la Cita</h3>
+            <div class="detailOrden">
+              <p>Orden: <span>{{citaId.id}}</span></p>
+              <p>Fecha: <span>{{citaId.fecha}}</span></p>
+              <p>Consultorio: <span>{{citaId.consultorio.numero}}</span></p>
+            </div>
+            <h3>Detalles del paciente</h3>
+            <div class="sectionDetailsPaciente">
+              <div>
+                <p>Nombres: <span>{{citaId.paciente.nombres}}</span></p>
+                <p>Apellidos: <span>{{citaId.paciente.apellidos}}</span></p>
+                <p></p>
+              </div>
+              <div>
+                <p>Tipo identificación: <span>{{citaId.paciente.tipo_identificacion}}</span></p>
+                <p>N° de documento: <span>{{citaId.paciente.numero_identificacion}}</span></p>
+                <p>Tipo de sangre: <span>{{citaId.paciente.tipo_sangre}}</span></p>
+              </div>
+            </div>
+            <h3>Detalles del Medico</h3>
+            <div class="sectionDetailsMedico">
+              <p>Nombres: <span>{{citaId.medico.nombres}}</span></p>
+              <p>Apellidos: <span>{{citaId.medico.apellidos}}</span></p>
+              <p>especialidad: <span>{{citaId.medico.especialidad}}</span></p>
+            </div>
+          </section>
+          <div class="mensajeBoton">
+            <a href="http://127.0.0.1:5000/citas" class="botonPrimary bontonDetails"> Lista de Citas </a>
+            <a href="/citas/update/{{ citaId.id }}" class="botonPrimary" >Editar</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      <section class="sectionHomeTable">
+        <section class="navLeft">
+          <div class="logoNav"><span><i class="fa-solid fa-staff-snake"></i></span></div>
+          <div class="navMenuLeft">
+            <ul>
+              <li><a class="botonLineNone" href="http://127.0.0.1:5000/"><span><i class="fa-solid fa-house"></i></span>HOME</a></li>
+              <li><a class="botonPrimary" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
+              <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
+              <li><a class="botonLineNone" href="http://127.0.0.1:5000/citas/create"><span><i class="fa-solid fa-file-circle-plus"></i></span>CREAR CITA</a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="contenidoRight">
+          <nav>
+            <div class="headerRight">
+              <h3>SALUD.PY</h3>
+              <p>Información de Usuarios</p>
+            </div>
+            <div class="navInfoRight">
+              <ul>
+                <li><a class="botonLine" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-user-doctor"></i></span>Medicos</a> </li>
+                <li><a class="botonLine" href="http://127.0.0.1:5000/pacientes"><span><i class="fa-solid fa-user"></i></span> Pacientes </a></li>
+                <li><a class="botonLine" href="http://127.0.0.1:5000/consultorios"><span><i class="fa-solid fa-house-medical-flag"></i></span>Consultorios </a></li>
+                <li><a class="botonPrimary" href="http://127.0.0.1:5000/citas"><span><i class="fa-solid fa-file-export"></i></span>Citas</a></li>
+              </ul>
+            </div>
+          </nav>
+          <section class="containerRight">
+            <div class="navHeaderTable">
+              <h3 class="titleTable">LISTA DE CITAS</h3>
+              <a class="botonPrimary" href="http://127.0.0.1:5000/citas/create">+ Crear nueva cita</a>
+            </div>
+            <article>
+              <table class="table">
+                <thead class="tableTitle">
+                  <tr>
+                    <th>Orden</th>
+                    <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>Medico</th>
+                    <th>Consultorio</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cita in citas %}
+                  <tr>   
+                    <td>{{ cita.id }}</td>
+                    <td>{{ cita.fecha }}</td>
+                    <td>{{ cita.paciente.nombres }}</td>
+                    <td>{{ cita.medico.nombres }}</td>
+                    <td>{{ cita.consultorio.numero }}</td>
+                    <td class="accionIcon">
+                      <a class="iconInfo" href="/citas/{{ cita.id }}"><i class="fa-solid fa-circle-info"></i></a>
+                      <a class="iconUpdate" href="/citas/update/{{ cita.id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <a class="iconDelete" href="/citas/delete/{{ cita.id }}"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                <tfoot></tfoot>
+              </table>
+            </article>
+          </section>
+        </section>
       </section>
-    </section>
-  </body>
+    </body>
 </html>

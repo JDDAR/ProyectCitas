@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Scripts iconos -->
     <script src="https://kit.fontawesome.com/6cfff2ec0f.js" crossorigin="anonymous"></script>
-    <title>Crear Consultorio</title>
+    <title>Actualizando Consultorio</title>
     <!-- Links Estilos Generales -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/formCrear.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/formCrear.css')}}"> 
+    <link rel="stylesheet" href="{{url_for('static', filename='modals/messages.css')}}">
   </head>
   <body>
 
@@ -19,8 +20,8 @@
         <div class="navMenuLeft">
           <ul>
             <li><a class="botonLineNone" href="http://127.0.0.1:5000/"><span><i class="fa-solid fa-house"></i></span>HOME</a></li>
-            <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
-            <li><a class="botonPrimary" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
+            <li><a class="botonPrimary" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
+            <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
             <li><a class="botonLineNone" href="http://127.0.0.1:5000/citas/create"><span><i class="fa-solid fa-file-circle-plus"></i></span>CREAR CITA</a></li>
           </ul>
         </div>
@@ -29,33 +30,28 @@
         <nav>
           <div class="headerRight">
             <h3>SALUD.PY</h3>
-            <p>Crear usuarios</p>
+            <p>Actualizando Consultorio</p>
           </div>
-        </nav>    
+        </nav>
         <section class="sectionForm">
-          <article class="articleFormRight">
-            <a class="botonLine" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-doctor"></i></span> Crear Medicos</a>
-            <a class="botonLine" href="http://127.0.0.1:5000/pacientes/create"><span><i class="fa-solid fa-user-plus"></i></span> Crear pacientes</a>
-            <a class="botonPrimary" href="http://127.0.0.1:5000/consultorios/create"><span><i class="fa-solid fa-house-medical-flag"></i></span> Crear Consultorio</a>
-          </article>
-
-
           <article class="articleForm">
-            <nav class="navForm" >
-              <h3 class="titleForm" >Nuevo Consultorio</h3>
+            <nav class="navForm">
+              <h3 class="titleForm" >Actualizar consultorio</h3>
               <a  class="botonPrimary" href="http://127.0.0.1:5000/consultorios">Lista de Consultorios</a>
             </nav>
-            <form method="post" class="formPrimary">
-              <div class="mb-3">
-                <label class="form-label">Numero de consultorio</label>
-                <input type="text" name="numero" class="form-control" aria-describedby="emailHelp" required>
+            <form method="post" action="/consultorios/update/{{consultorio_update.id}}" class="formPrimary">
+              <div>
+                <label for="consultorio">Numero del Consultorio</label>
+                <input type="text" name="nConsultorio" value="{{consultorio_update.numero}}" id="consultorio" required>
               </div>
-              <button type="submit" class="botonPrimary botonForm">Crear Nuevo Consultorio</button>
+               <button type="submit" class="botonPrimary botonForm">Actualizar Datos</button>
             </form>
           </article>
         </section>
       </section>
     </section>
+
   </body>
 </html>
+
 

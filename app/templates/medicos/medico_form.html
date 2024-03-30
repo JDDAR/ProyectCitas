@@ -3,23 +3,51 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app/styles/styles.css">
     <!--Scripts iconos -->
     <script src="https://kit.fontawesome.com/6cfff2ec0f.js" crossorigin="anonymous"></script>
-    <title>Lista Medicos</title>
+    <title>Crear Medico</title>
     <!-- Links Estilos Generales -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navs/menuLeft.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/formCrear.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'modals/messages')}}">
 
   </head>
   <body>
-    <!-- Mensaje de alerta Eliminar usuario --> 
-    {% with messages = get_flashed_messages() %}
+
+    <!-- Mensaje de usuario existente --> 
+    {% with messages = get_flashed_messages(category_filter=["existe"]) %}
     {% if messages %}
     <div class='flashes delete actualizado'>
       {% for message in messages %}
-      <li>{{ message }}</li>
+      <div class="existe" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-exclamation"></i></span>Medico Existente</h2>
+          <h3>{{ message }}</h3>
+          <p>Intentelo de nuevo </p>
+          <a class="botonPrimary" href="http://127.0.0.1:5000/medicos/create">Aceptar</a>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <!-- Mensaje usuario creado exitosamente  -->
+    {% with messages = get_flashed_messages(category_filter=["exito"]) %}
+    {% if messages %}
+    <div class='flashes delete actualizado'>
+      {% for message in messages %}
+      <div class="exito" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-check"></i></span>Medico creado exitosamente</h2>
+          <h3>{{ message }}</h3>
+          <p>¿que desa hacer? </p>
+          <div class="mensajeBoton">
+            <a class="butonPrimary" href="http://127.0.0.1:5000/medicos/create"> Crear Nuevo Medico</a>
+            <a class="butonPrimary" href="http://127.0.0.1:5000/medicos">Lista de Medico</a>
+          </div>
+        </article>
+      </div>
       {% endfor %}
     </div>
     {% endif %}
@@ -46,6 +74,11 @@
         </nav>
         <!-- Seccion Formulario  ******************************************************* -->
         <section class="sectionForm">
+          <article class="articleFormRight">
+            <a class="botonPrimary" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-doctor"></i></span> Crear Medicos</a>
+            <a class="botonLine" href="http://127.0.0.1:5000/pacientes/create"><span><i class="fa-solid fa-user-plus"></i></span> Crear pacientes</a>
+            <a class="botonLine" href="http://127.0.0.1:5000/consultorios/create"><span><i class="fa-solid fa-house-medical-flag"></i></span> Crear Consultorio</a>
+          </article>
           <article class="articleForm">
             <nav class="navForm" >
               <h3 class="titleForm" >Nuevo Medico</h3>
@@ -89,11 +122,7 @@
               <button type="submit" class="botonPrimary botonForm">Crear Nuevo Medico</button>
             </form>
           </article>
-          <article class="articleFormRight">
-            <a class="botonPrimary" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-doctor"></i></span> Crear Medicos</a>
-            <a class="botonLine" href="http://127.0.0.1:5000/pacientes/create"><span><i class="fa-solid fa-user-plus"></i></span> Crear pacientes</a>
-            <a class="botonLine" href="http://127.0.0.1:5000/consultorios/create"><span><i class="fa-solid fa-house-medical-flag"></i></span> Crear Consultorio</a>
-          </article>
+
         </section>
         <!-- Fin seccion formulario -->
 
