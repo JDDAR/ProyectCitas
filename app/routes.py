@@ -181,8 +181,8 @@ def get_create_cita():
                         )
         db.session.add(new_cita)
         db.session.commit()
-        flash('Cita asignada', 'citaCreate')
-        return redirect('/citas')
+        flash('Cita asignada', 'exito')
+        return redirect('/citas/create')
 
 ############# ACTUALIZACION DE DATOS ##########################
 #################################################################

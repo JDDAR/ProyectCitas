@@ -14,102 +14,89 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/cita_formNext.css')}}">
 
   </head>
-  <body>
-    <!-- Mensaje de alerta Eliminar usuario --> 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <div class='flashes delete actualizado'>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </div>
-    {% endif %}
-    {% endwith %}
-
-    <section class="sectionHomeTable">
-      <section class="navLeft">
-        <div class="logoNav"><span><i class="fa-solid fa-staff-snake"></i></span></div>
-        <div class="navMenuLeft">
-          <ul>
-            <li><a class="botonLineNone" href="http://127.0.0.1:5000/"><span><i class="fa-solid fa-house"></i></span>HOME</a></li>
-            <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
-            <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
-            <li><a class="botonPrimary" href="http://127.0.0.1:5000/citas/create"><span><i class="fa-solid fa-file-circle-plus"></i></span>CREAR CITA</a></li>
-          </ul>
+  <section class="sectionHomeTable">
+    <section class="navLeft">
+      <div class="logoNav"><span><i class="fa-solid fa-staff-snake"></i></span></div>
+      <div class="navMenuLeft">
+        <ul>
+          <li><a class="botonLineNone" href="http://127.0.0.1:5000/"><span><i class="fa-solid fa-house"></i></span>HOME</a></li>
+          <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos"><span><i class="fa-solid fa-table"></i></span>INFORMACIÓN</a></li>
+          <li><a class="botonLineNone" href="http://127.0.0.1:5000/medicos/create"><span><i class="fa-solid fa-user-plus"></i></span>CREAR USUARIO</a></li>
+          <li><a class="botonPrimary" href="http://127.0.0.1:5000/citas/create"><span><i class="fa-solid fa-file-circle-plus"></i></span>CREAR CITA</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="contenidoRight">
+      <nav>
+        <div class="headerRight">
+          <h3>SALUD.PY</h3>
+          <p>Crear Cita Medica</p>
         </div>
+      </nav>
+      <!-- Seccion Formulario  ******************************************************* -->
+      <section class="sectionForm">
+        <article class="articleForm">
+          <nav class="navForm" >
+            <h3 class="titleForm" >Nueva Cita</h3>
+            <a  class="botonPrimary" href="http://127.0.0.1:5000/citas">Lista de Citas</a>
+          </nav>
+
+          {% for p in paciente %}
+          {% if p.numero_identificacion|int() == identPaciente|int()%}
+          <form method="post" class="formPrimary" action="./asignacionCreate" >
+            <h3>Datos del paciente</h3>
+            <section class="formDataUser">
+              <div class="dataUserLeft">
+                <p><span>Nombres: </span> {{p.nombres}}</p>
+                <p><span>Tipo de Identificación: </span> {{p.tipo_identificacion}}</p>
+                <p><span>Altura:</span>{{p.altura}}</p>
+              </div>
+              <div class="dataUserRight">
+                <p><span>Apellidos:</span>{{p.apellidos}}</p>
+                <p><span>Numero de Identificación:</span>{{p.numero_identificacion}}</p>
+                <p><span>Tipo de sangre:</span>{{p.tipo_sangre}}</p>
+              </div>
+              <input style="display: none;" type="radio" name="idPaciente" checked="checked" value="{{p.id}}">
+            </section>
+            {%endif%}
+            {% endfor %}
+
+            <section class="sectionEspecialidadSelect">
+              <section class="serviSelect">
+                <h3>Servicio Selecionado</h3>
+                <h4>{{especialidadSelect}}</h4>
+              </section>
+              <section class="docDisponible">
+                <h3>Doctores Disponibles para {{especialidadSelect}}</h3>
+                <select name="doctor" id="" required>
+                  {%for doc in medico %}
+                  {% if doc.especialidad == especialidadSelect %}
+                  <option value="{{doc.id}}">{{doc.nombres}} {{doc.apellidos}}</option>
+                  {%endif%}
+                  {%endfor%}
+                </select>
+              </section>
+            </section>
+            <h3>Datos de la cita </h3> 
+            <section class="dataCita">
+              <section class="dataSection">
+                <h4>Fecha y hora</h4>
+                <input name="data" type="datetime-local" required>
+              </section>
+              <section class="consulSection">
+                <h4>Consultorios</h4>
+                <select name="consultorio" id="">
+                  {% for consul in consultorios%}
+                  <option value="{{consul.id}}">{{consul.numero}}</option>
+                  {%endfor%}
+                </select>
+              </section>
+            </section>
+            <button type="submit" class="botonPrimary botonAsignar">Asignar Cita</button>
+          </form>
+        </article>
       </section>
-      <section class="contenidoRight">
-        <nav>
-          <div class="headerRight">
-            <h3>SALUD.PY</h3>
-            <p>Crear Cita Medica</p>
-          </div>
-        </nav>
-        <!-- Seccion Formulario  ******************************************************* -->
-        <section class="sectionForm">
-          <article class="articleForm">
-            <nav class="navForm" >
-              <h3 class="titleForm" >Nueva Cita</h3>
-              <a  class="botonPrimary" href="http://127.0.0.1:5000/citas">Lista de Citas</a>
-            </nav>
-
-            {% for p in paciente %}
-            {% if p.numero_identificacion|int() == identPaciente|int()%}
-            <form method="post" class="formPrimary" action="./asignacionCreate" >
-              <h3>Datos del paciente</h3>
-              <section class="formDataUser">
-                <div class="dataUserLeft">
-                  <p><span>Nombres: </span> {{p.nombres}}</p>
-                  <p><span>Tipo de Identificación: </span> {{p.tipo_identificacion}}</p>
-                  <p><span>Altura:</span>{{p.altura}}</p>
-                </div>
-                <div class="dataUserRight">
-                  <p><span>Apellidos:</span>{{p.apellidos}}</p>
-                  <p><span>Numero de Identificación:</span>{{p.numero_identificacion}}</p>
-                  <p><span>Tipo de sangre:</span>{{p.tipo_sangre}}</p>
-                </div>
-                <input style="display: none;" type="radio" name="idPaciente" checked="checked" value="{{p.id}}">
-              </section>
-              {%endif%}
-              {% endfor %}
-
-              <section class="sectionEspecialidadSelect">
-                <section class="serviSelect">
-                  <h3>Servicio Selecionado</h3>
-                  <h4>{{especialidadSelect}}</h4>
-                </section>
-                <section class="docDisponible">
-                  <h3>Doctores Disponibles para {{especialidadSelect}}</h3>
-                  <select name="doctor" id="" required>
-                    {%for doc in medico %}
-                    {% if doc.especialidad == especialidadSelect %}
-                    <option value="{{doc.id}}">{{doc.nombres}} {{doc.apellidos}}</option>
-                    {%endif%}
-                    {%endfor%}
-                  </select>
-                </section>
-              </section>
-                <h3>Datos de la cita </h3> 
-              <section class="dataCita">
-                <section class="dataSection">
-                    <h4>Fecha y hora</h4>
-                    <input name="data" type="datetime-local" required>
-                </section>
-                <section class="consulSection">
-                    <h4>Consultorios</h4>
-                    <select name="consultorio" id="">
-                    {% for consul in consultorios%}
-                    <option value="{{consul.id}}">{{consul.numero}}</option>
-                    {%endfor%}
-                    </select>
-                </section>
-              </section>
-              <button type="submit" class="botonPrimary botonAsignar">Asignar Cita</button>
-            </form>
-          </article>
-        </section>
-        <!-- Fin seccion formulario -->
-
-      </section>
-  </body>
+      <!-- Fin seccion formulario -->
+    </section>
+    </body>
 </html>

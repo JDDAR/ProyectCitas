@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'forms/formCrear.css')}}">
   </head>
   <body>
-
     <section class="sectionHomeTable">
       <section class="navLeft">
         <div class="logoNav"><span><i class="fa-solid fa-staff-snake"></i></span></div>
@@ -38,17 +37,15 @@
             <a class="botonLine" href="http://127.0.0.1:5000/pacientes/create"><span><i class="fa-solid fa-user-plus"></i></span> Crear pacientes</a>
             <a class="botonPrimary" href="http://127.0.0.1:5000/consultorios/create"><span><i class="fa-solid fa-house-medical-flag"></i></span> Crear Consultorio</a>
           </article>
-
-
           <article class="articleForm">
             <nav class="navForm" >
               <h3 class="titleForm" >Nuevo Consultorio</h3>
               <a  class="botonPrimary" href="http://127.0.0.1:5000/consultorios">Lista de Consultorios</a>
             </nav>
             <form method="post" class="formPrimary">
-              <div class="mb-3">
+              <div>
                 <label class="form-label">Numero de consultorio</label>
-                <input type="text" name="numero" class="form-control" aria-describedby="emailHelp" required>
+                <input type="text" name="numero" class="form-control" required>
               </div>
               <button type="submit" class="botonPrimary botonForm">Crear Nuevo Consultorio</button>
             </form>

@@ -47,26 +47,28 @@
       {% endfor %}
       {% endif %}
       {% endwith %}
-     <!-- MENSAJE: CITA MEDICA Creada   -->
+
+      <!-- MENSAJE: CITA MEDICA Creada   -->
       {% with messages = get_flashed_messages(category_filter=["citaCreate"]) %}
       {% if messages %}
       {% for message in messages %}
       <div class="citaCreate" >
         <article>
-          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Cita Medica Creada</h2>
+          <h2><span><i class="fa-solid fa-circle-check"></i></span>Cita Medica Creada</h2>
           <h3>{{ message }}</h3>
         </article>
       </div>
       {% endfor %}
       {% endif %}
       {% endwith %}
+
       <!-- MENSAJE: CITA MEDICA ACTUALIZADA   -->
       {% with messages = get_flashed_messages(category_filter=["upgrade"]) %}
       {% if messages %}
       {% for message in messages %}
       <div class="upgrade" >
         <article>
-          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Cita Medica Actualizada</h2>
+          <h2><span><i class="fa-solid fa-circle-check"></i></span>Cita Medica Actualizada</h2>
           <h3>{{ message }}</h3>
         </article>
       </div>
@@ -80,7 +82,7 @@
       {% for message in messages %}
       <div class="menssageDetails" >
         <article>
-          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Cita Orden: {{citaId.id}}</h2>
+          <h2><span><i class="fa-solid fa-circle-info"></i></span>Cita Orden: {{citaId.id}}</h2>
           <section class="sectionDetailsCitas">
             <h3>Detalles de la Cita</h3>
             <div class="detailOrden">

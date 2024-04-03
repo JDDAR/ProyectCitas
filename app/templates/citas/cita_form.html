@@ -14,12 +14,23 @@
     <link rel="stylesheet" href="{{url_for('static', filename='modals/messages.css')}}">
   </head>
   <body>
-    <!-- Mensaje de alerta Eliminar usuario --> 
-    {% with messages = get_flashed_messages() %}
+
+    <!-- Mensaje usuario creado exitosamente  -->
+    {% with messages = get_flashed_messages(category_filter=["exito"]) %}
     {% if messages %}
     <div class='flashes delete actualizado'>
       {% for message in messages %}
-      <li>{{ message }}</li>
+      <div class="exito" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-check"></i></span>Cita Medica creada exitosamente</h2>
+          <h3>{{ message }}</h3>
+          <p>¿que desa hacer? </p>
+          <div class="mensajeBoton">
+            <a class="butonPrimary" href="http://127.0.0.1:5000/citas/create"> Crear nueva cita</a>
+            <a class="butonPrimary" href="http://127.0.0.1:5000/citas">Lista de Citas</a>
+          </div>
+        </article>
+      </div>
       {% endfor %}
     </div>
     {% endif %}
@@ -59,12 +70,9 @@
               </div>
               <button type="submit" class="botonPrimary botonForm">Buscar Usuario</button>
             </form>
-
           </article>
-          
         </section>
-        <!-- Fin seccion formulario -->
-
+        <!-- Fin seccion formulario --
       </section>
   </body>
 </html>

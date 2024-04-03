@@ -15,17 +15,6 @@
 
   </head>
   <body>
-    <!-- Mensaje de alerta Eliminar usuario --> 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <div class='flashes delete actualizado'>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </div>
-    {% endif %}
-    {% endwith %}
-
     <section class="sectionHomeTable">
       <section class="navLeft">
         <div class="logoNav"><span><i class="fa-solid fa-staff-snake"></i></span></div>
@@ -88,7 +77,6 @@
           </article>
         </section>
         <!-- Fin seccion formulario -->
-
       </section>
   </body>
 </html>

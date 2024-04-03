@@ -49,13 +49,15 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
+
+
     <!-- Mensaje: Paciente Actualizado  -->
     {% with messages = get_flashed_messages(category_filter=["upgrade"]) %}
     {% if messages %}
     {% for message in messages %}
     <div class="upgrade" >
       <article>
-        <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Medico Actualizado</h2>
+        <h2><span><i class="fa-solid fa-circle-check"></i></span>Medico Actualizado</h2>
         <h3>{{ message }}</h3>
       </article>
     </div>
@@ -69,7 +71,7 @@
     {% for message in messages %}
     <div class="menssageDetails" >
       <article>
-        <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Medico {{medicoId.nombres}}</h2>
+        <h2><span><i class="fa-solid fa-circle-info"></i></span>Medico {{medicoId.nombres}}</h2>
         <section class="sectionDetails">
           <div>
             <p>Nombres: <span>{{medicoId.nombres}}</span></p>
