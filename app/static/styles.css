@@ -46,6 +46,25 @@ body {
 .sectionHomeTable{
   display: flex;
 }
+/************ RESPONSIVE CONTENTENIDO GENERAL *****************/
+/**************************************************************/ 
+
+@media (max-width: 1420px){
+  .container {
+    width: 90%;
+  }
+}
+@media (max-width: 1240px) {
+    .container {
+      width: 80%;
+    }
+}
+@media (max-width: 900px) {
+  .container {
+    height: auto;
+  }
+}
+
 
 /* EStilos de colores */
 
@@ -92,6 +111,9 @@ body {
   border: none;
 }
 
+
+
+
 /*Estilos header Right--------------------------------*/
 .contenidoRight{
   width: 100%;
@@ -107,59 +129,17 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
 }
-
-/*Saludo Home------------------------------------------*/
-.articleHello {
-  margin-top: 5%;
-  line-height: 3rem;
-}
-.articleHello h3 {
-  font-size: 1.75em;
-  font-weight: 100;
-}
-.articleHello h2 {
-  font-size: 3.40em;
-}
-.textSelection {
-  font-size: 1rem;
-  font-weight: 100;
-  margin-bottom: 35px;
-}
-/*Cards Seleccion-------------------------------------------*/
-.cardsSelection {
-  display: flex;
-  justify-content: space-between;
-  gap: 70px;
-}
-.cardsSelection div{
-  width: 100%;
-  border: 1px solid var(--color-secundary);
-  border-radius: 12px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-}
-.cardsSelection div span {
-  font-size: 3.75em;
-  color: var(--color-secundary);
-  margin-bottom: 80px;
-}
-.cardsSelection div h4 {
-  font-size: 1.5em;
-  font-weight: 400;
-  color: var(--color-font);
-}
-.cardsSelection div p {
-  font-size: 1em;
-  font-weight: 100;
-  margin-bottom: 35px;
+@media (max-width: 1240px) {
+  .contenidoRight {
+    padding-right: 5px;
+  }
 }
 
 /* Footer-----------------------------------------------------*/
 
 footer {
+  margin-top: 25px;
   height: 20px;
-  position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -167,6 +147,7 @@ footer {
   padding-bottom: 5px;
 }
 footer p {
+
   font-size: 1em;
   font-weight: 100;
 }

@@ -52,7 +52,7 @@
               <section class="sectionIntoForm">
                 <div>
                   <label for="tipoIdentificacion">Tipo de identificacion</label>
-                  <select name="tipoID"  required>
+                  <select name="tipoID" value="{{medico_update.tipo_identificacion}}"  required>
                     <option {% if medico_update.tipo_identificacion == 'TI' %} selected {%endif%}>T.I</option>
                     <option {% if medico_update.tipo_identificacion == 'CC' %} selected {%endif%}>C.c</option>
                   </select>

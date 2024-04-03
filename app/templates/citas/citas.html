@@ -47,7 +47,19 @@
       {% endfor %}
       {% endif %}
       {% endwith %}
-
+     <!-- MENSAJE: CITA MEDICA Creada   -->
+      {% with messages = get_flashed_messages(category_filter=["citaCreate"]) %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="citaCreate" >
+        <article>
+          <h2><span><i class="fa-solid fa-circle-xmark"></i></span>Cita Medica Creada</h2>
+          <h3>{{ message }}</h3>
+        </article>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
       <!-- MENSAJE: CITA MEDICA ACTUALIZADA   -->
       {% with messages = get_flashed_messages(category_filter=["upgrade"]) %}
       {% if messages %}

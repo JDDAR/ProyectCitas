@@ -1,0 +1,103 @@
+
+:root {
+  --font-family-style : "Sarabun", sans-serif;
+
+  /*Colors */
+  --color-primary: #E9EBEC;
+  --color-secundary: #10B8B9;
+  --color-font : #1E1E1E; 
+  --color-font-text: #222426;
+  --color-bg-secondary: #f1f1f1;
+  --color-extra-bg: #D9D9D9;
+  --color-extra-rgba: rgba(34, 36, 38, 0.17);
+  --color-icon-rgba:rgba(34, 36, 38, 0.56);
+
+  /*Color Mensajes*/
+  --color-delete: #FC7F7F;
+  --color-upgrade:#008B2F;
+  --color-details:#7057D2;
+  /*Lineas*/
+  --linea-color: 1px solid var(--color-extra-rgba);
+  /*Botones */
+  --border-butom: 1px solid var(--color-secundary);
+
+}
+/*Saludo Home------------------------------------------*/
+.articleHello {
+  margin-top: 5%;
+  line-height: 3rem;
+}
+.articleHello h3 {
+  font-size: 1.75em;
+  font-weight: 100;
+}
+.articleHello h2 {
+  font-size: 3.40em;
+}
+.textSelection {
+  font-size: 1rem;
+  font-weight: 100;
+  margin-bottom: 35px;
+}
+/*Cards Seleccion-------------------------------------------*/
+.cardsSelection {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+}
+.cardsSelection div{
+  width: 100%;
+  border: 1px solid var(--color-secundary);
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cardsSelection div span {
+  font-size: 3.75em;
+  color: var(--color-secundary);
+  margin-bottom: 80px;
+}
+.cardsSelection div h4 {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: var(--color-font);
+}
+.cardsSelection div p {
+  font-size: 1em;
+  font-weight: 100;
+  margin-bottom: 35px;
+}
+
+/*RESPONSIVE ***********************************************/
+
+@media (max-width: 1240px) {
+   .cardsSelection {
+      gap: 35px;
+    }
+    .cardsSelection div span {
+      font-size: 2.5rem;
+    }
+}
+@media (max-width: 1040px) {
+  .cardsSelection{
+    gap: 25px;
+  }
+  .cardsSelection div h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .cardsSelection div span {
+    margin-bottom: 50px;
+  }
+  .cardsSelection div p {
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 900px) {
+  .cardsSelection {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -138,7 +138,7 @@ def create_consultorio():
         new_consultorio = Consultorio( numero = request.form['numero'] )
     db.session.add(new_consultorio)
     db.session.commit()
-    flash("Consultorio registrado exitosamente")
+    flash("Consultorio Registrado", 'createConsul')
     return redirect('/consultorios')
 
 ## Creando Citas ##
@@ -181,7 +181,7 @@ def get_create_cita():
                         )
         db.session.add(new_cita)
         db.session.commit()
-        flash('Cita asignada')
+        flash('Cita asignada', 'citaCreate')
         return redirect('/citas')
 
 ############# ACTUALIZACION DE DATOS ##########################

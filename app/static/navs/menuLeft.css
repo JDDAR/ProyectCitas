@@ -19,7 +19,7 @@
 
 .navLeft {
   height: 100vh;
-  width: 15%;
+  width: 20%;
   border-right: var(--linea-color);
   background: var(--color-bg-secondary);
 }
@@ -56,3 +56,16 @@
   color: var(--color-icon-rgba);
 }
 
+@media (max-width: 1240px) {
+  .navLeft {
+    width: 25%;
+  }
+}
+@media (max-width: 1040px) {
+  .navLeft {
+    width: 27%;
+  }
+  .navLeft ul li a {
+    font-size: 0.9rem;
+  }
+}
